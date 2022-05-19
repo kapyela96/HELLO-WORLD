@@ -1,0 +1,30 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+class Main extends CI_Controller {
+
+	public function myview()
+	{
+		$this->load->view('main_view');
+	}
+	function savedata()
+	{
+		$data = array(
+
+			'first_name' => $this->input->post('first_name'),
+			'last_name' => $this->input->post('last_name') 
+
+		);
+		$query=$this->Main_model->insertdata($data);
+		if($query=true){
+
+			echo"data successfully inserted";
+
+		}
+		else{
+			echo "error occured no data inserted";
+		}
+
+	}
+}
+?>
